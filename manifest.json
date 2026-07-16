@@ -1,0 +1,60 @@
+{
+    "applications": [
+        {
+            "app": "vertx-webapp",
+            "path": "vertx-webapp",
+            "role": "positive",
+            "description": "Vert.x web application demonstrating reachable vulnerability patterns across multiple BDSAs",
+            "bdsa": [
+                {
+                    "id": "BDSA-2023-2163",
+                    "cve": "CVE-2023-24815",
+                    "description": "Path traversal via StaticHandler wildcard routes",
+                    "expected_matches": [
+                        {
+                            "file": "src/main/java/com/example/vertx/FileServerApp.java",
+                            "reachable": true
+                        },
+                        {
+                            "file": "src/main/java/com/example/vertx/DocumentServer.java",
+                            "reachable": true
+                        }
+                    ]
+                },
+                {
+                    "id": "BDSA-2024-0760",
+                    "cve": null,
+                    "description": "CombinerExecutor connection pool vulnerability via HttpClient usage",
+                    "expected_matches": [
+                        {
+                            "file": "src/main/java/com/example/vertx/HttpClientService.java",
+                            "reachable": true
+                        }
+                    ]
+                },
+                {
+                    "id": "BDSA-2025-14250",
+                    "cve": null,
+                    "description": "Directory listing exposure via StaticHandlerImpl.sendDirectoryListing",
+                    "expected_matches": [
+                        {
+                            "file": "src/main/java/com/example/vertx/DirectoryBrowserServer.java",
+                            "reachable": true
+                        }
+                    ]
+                },
+                {
+                    "id": "BDSA-2025-14251",
+                    "cve": null,
+                    "description": "Static file serving vulnerability via StaticHandlerImpl.sendStatic",
+                    "expected_matches": [
+                        {
+                            "file": "src/main/java/com/example/vertx/StaticResourceServer.java",
+                            "reachable": true
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}
